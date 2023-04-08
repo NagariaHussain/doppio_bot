@@ -1,0 +1,20 @@
+{
+  "name": "frappe_chatgpt",
+  "version": "1.0.0",
+  "description": "ChatGPT in the Desk, powered by React & OpenAI API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chakra-ui/react": "^2.5.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "framer-motion": "^10.11.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

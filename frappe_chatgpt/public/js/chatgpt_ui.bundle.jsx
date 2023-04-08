@@ -1,5 +1,7 @@
 import * as React from "react";
+import { App } from "./App";
 import { createRoot } from "react-dom/client";
+import { ChakraProvider } from "@chakra-ui/react";
 
 class ChatGptUI {
   constructor({ wrapper, page }) {
@@ -10,7 +12,11 @@ class ChatGptUI {
 
   init() {
     const root = createRoot(this.$wrapper.get(0));
-    root.render(<h3>Bye, world</h3>);
+    root.render(
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
+    );
   }
 }
 
