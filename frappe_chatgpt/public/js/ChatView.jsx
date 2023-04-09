@@ -7,7 +7,7 @@ import {
   CardBody,
   Avatar,
   useToast,
-  Textarea
+  Textarea,
 } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
@@ -41,7 +41,7 @@ const ChatView = () => {
       position: "bottom-right",
       isClosable: true,
     });
-  });
+  }, []);
 
   return (
     <Flex direction={"column"} height={"75vh"} width={"100%"}>
@@ -64,7 +64,7 @@ const ChatView = () => {
               value={promptMessage}
               onChange={(event) => setPromptMessage(event.target.value)}
               onKeyDown={(event) => {
-                if (event.code == "Enter" && promptMessage) {
+                if (event.code == "Enter" && event.metaKey && promptMessage) {
                   console.log("enter key pressed with message", promptMessage);
                   setPromptMessage("");
                 }
