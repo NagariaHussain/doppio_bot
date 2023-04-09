@@ -1218,6 +1218,11 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
+lucide-react@^0.132.0:
+  version "0.132.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.132.0.tgz#410d02cbc558e3026b4e58b1f5cc43bbf71e8baf"
+  integrity sha512-Wj+SuozBL+W3y0aYbblbTbl3ZV0R449cJeX076I46Z99err/6ahYHwGK+GGgq2yCB3sSTYRfAznBGBwNcSxV1w==
+
 object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
