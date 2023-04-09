@@ -7,6 +7,7 @@ import {
   CardBody,
   Avatar,
   useToast,
+  Textarea
 } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
@@ -56,10 +57,10 @@ const ChatView = () => {
       {/* Prompt Area */}
       <Card mt={"1.5"}>
         <CardBody>
-          <Flex gap={"1.5"} alignItems={"center"}>
+          <Flex gap={"1.5"} alignItems={"start"}>
             <Avatar name={userFullname} size={"sm"} src={userImageURL} />
             {/* Input Box */}
-            <Input
+            <Textarea
               value={promptMessage}
               onChange={(event) => setPromptMessage(event.target.value)}
               onKeyDown={(event) => {
