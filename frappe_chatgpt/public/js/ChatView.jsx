@@ -28,30 +28,36 @@ const ChatView = () => {
       isLoading: false,
       content: "How can I help you?",
     },
-    {
-      from: "user",
-      isLoading: false,
-      content: "What do folks at Frappe do?",
-    },
-    {
-      from: "bot",
-      isLoading: true,
-      content: "",
-    },
   ]);
 
   const handleSendMessage = () => {
     if (!promptMessage.trim().length) {
       return;
     }
-    const data = promptMessage;
 
-    setMessages((old) => [...old, { from: "user", content: data }]);
+    setMessages((old) => [
+      ...old,
+      { from: "user", content: promptMessage, isLoading: false },
+      { from: "bot", content: "", isLoading: true },
+    ]);
     setPromptMessage("");
 
-    setTimeout(() => {
-      setMessages((old) => [...old, { from: "bot", content: data }]);
-    }, 1000);
+    // Plan of Action
+    frappe
+      .call("frappe_chatgpt.api.get_chatbot_response", {
+        prompt_message: promptMessage,
+      })
+      .then((response) => {
+        setMessages((old) => {
+          old.splice(old.length - 1, 1, {
+            from: "bot",
+            content: response.message,
+            isLoading: false,
+          });
+          return [...old];
+        });
+      })
+      .catch((e) => console.error(e));
   };
 
   useEffect(() => {
@@ -64,7 +70,7 @@ const ChatView = () => {
   }, []);
 
   return (
-    <Flex direction={"column"} height={"75vh"} width={"100%"}>
+    <Flex direction={"column"} height={"77vh"} width={"100%"}>
       {/* Chat Area */}
       <Box
         width={"100%"}
