@@ -1,26 +1,22 @@
 import frappe
 
 from langchain.llms import OpenAI
-from langchain.chains import ConversationChain, LLMChain
-from langchain.prompts import PromptTemplate
-
-llm = OpenAI(temperature=0, openai_api_key=frappe.conf.get("openai_api_key"))
-
-
-template = """You are friendly AI Chat Bot who interacts with Humans in a sweet and polite manner.
-
-Human:
-{prompt_message}
-Bot:"""
-
-prompt_template = PromptTemplate(input_variables=["prompt_message"], template=template)
-
-# TODO: Later
-# conversation_chain = ConversationChain(prompt=prompt_template)
-
-conversation_chain = LLMChain(prompt=prompt_template, llm=llm)
+from langchain.memory import RedisChatMessageHistory, ConversationBufferMemory
+from langchain.chains import ConversationChain
 
 
 @frappe.whitelist()
-def get_chatbot_response(prompt_message):
+def get_chatbot_response(session_id, prompt_message):
+	# Throw if no key in site_config
+	# Maybe extract and cache this (site cache)
+	opeai_api_key = frappe.conf.get("openai_api_key")
+
+	if not opeai_api_key:
+		frappe.throw("Please set `openai_api_key` in site config")
+
+	llm = OpenAI(temperature=0, openai_api_key=opeai_api_key)
+	message_history = RedisChatMessageHistory(session_id=session_id)
+	memory = ConversationBufferMemory(memory_key="history", chat_memory=message_history)
+	conversation_chain = ConversationChain(llm=llm, memory=memory)
+
 	return conversation_chain.run(prompt_message)
