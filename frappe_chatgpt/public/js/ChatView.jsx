@@ -24,7 +24,7 @@ const ChatView = () => {
 
   const [messages, setMessages] = useState([
     {
-      from: "bot",
+      from: "ai",
       isLoading: false,
       content: "How can I help you?",
     },
@@ -37,8 +37,8 @@ const ChatView = () => {
 
     setMessages((old) => [
       ...old,
-      { from: "user", content: promptMessage, isLoading: false },
-      { from: "bot", content: "", isLoading: true },
+      { from: "human", content: promptMessage, isLoading: false },
+      { from: "ai", content: "", isLoading: true },
     ]);
     setPromptMessage("");
 
@@ -50,7 +50,7 @@ const ChatView = () => {
       .then((response) => {
         setMessages((old) => {
           old.splice(old.length - 1, 1, {
-            from: "bot",
+            from: "ai",
             content: response.message,
             isLoading: false,
           });
@@ -82,19 +82,20 @@ const ChatView = () => {
       >
         <VStack spacing={2} align="stretch" p={"2"}>
           {messages.map((message) => {
-            const fromBot = message.from === "bot";
+            const fromAI = message.from === "ai";
             return (
+              // TODO: Extract a separate component
               <Flex
                 direction={"column"}
                 p={"4"}
                 key={message.content}
-                alignSelf={fromBot ? "start" : "end"}
+                alignSelf={fromAI ? "start" : "end"}
                 justify={"center"}
-                backgroundColor={fromBot ? "blackAlpha.800" : "linkedin.500"}
+                backgroundColor={fromAI ? "blackAlpha.800" : "linkedin.500"}
                 rounded={"xl"}
                 width={"fit-content"}
-                roundedTopLeft={fromBot ? "0" : "xl"}
-                roundedTopRight={fromBot ? "xl" : "0"}
+                roundedTopLeft={fromAI ? "0" : "xl"}
+                roundedTopRight={fromAI ? "xl" : "0"}
               >
                 {!message.isLoading ? (
                   <Text color={"white"} mb={"0"}>
