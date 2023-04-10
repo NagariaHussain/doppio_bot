@@ -4,7 +4,7 @@
  "docstatus": 0,
  "doctype": "Page",
  "idx": 0,
- "modified": "2023-03-19 12:20:08.652963",
+ "modified": "2023-04-10 12:23:49.022908",
  "modified_by": "Administrator",
  "module": "Frappe ChatGPT Integration",
  "name": "frappe-chatgpt",
@@ -19,5 +19,5 @@
  "standard": "Yes",
  "style": null,
  "system_page": 0,
- "title": "FrappeGPT"
+ "title": "Ask DoppioBot"
 }
