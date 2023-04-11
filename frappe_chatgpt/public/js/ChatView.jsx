@@ -47,6 +47,7 @@ const ChatView = ({ sessionID }) => {
         session_id: sessionID,
       })
       .then((response) => {
+        console.log("message from backend: ", response);
         setMessages((old) => {
           old.splice(old.length - 1, 1, {
             from: "ai",
@@ -88,9 +89,7 @@ const ChatView = ({ sessionID }) => {
       >
         <VStack spacing={2} align="stretch" p={"2"}>
           {messages.map((message) => {
-            return (
-              <Message message={message} />
-            );
+            return <Message message={message} />;
           })}
         </VStack>
       </Box>

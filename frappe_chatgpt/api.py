@@ -3,6 +3,17 @@ import frappe
 from langchain.llms import OpenAI
 from langchain.memory import RedisChatMessageHistory, ConversationBufferMemory
 from langchain.chains import ConversationChain
+from langchain.prompts import PromptTemplate
+
+# Note: Copied the default template and added extra instructions for code output
+prompt_template = PromptTemplate(
+	input_variables=["history", "input"],
+	output_parser=None,
+	partial_variables={},
+	template="The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know. Any programming code should be output in a github flavored markdown code block mentioning the programming language.\n\nCurrent conversation:\n{history}\nHuman: {input}\nAI:",
+	template_format="f-string",
+	validate_template=True,
+)
 
 
 @frappe.whitelist()
@@ -17,6 +28,6 @@ def get_chatbot_response(session_id, prompt_message):
 	llm = OpenAI(temperature=0, openai_api_key=opeai_api_key)
 	message_history = RedisChatMessageHistory(session_id=session_id)
 	memory = ConversationBufferMemory(memory_key="history", chat_memory=message_history)
-	conversation_chain = ConversationChain(llm=llm, memory=memory)
+	conversation_chain = ConversationChain(llm=llm, memory=memory, prompt=prompt_template)
 
 	return conversation_chain.run(prompt_message)
