@@ -10,7 +10,17 @@ prompt_template = PromptTemplate(
 	input_variables=["history", "input"],
 	output_parser=None,
 	partial_variables={},
-	template="The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it does not know. Any programming code should be output in a github flavored markdown code block mentioning the programming language.\n\nCurrent conversation:\n{history}\nHuman: {input}\nAI:",
+	template="""
+	The following is a friendly conversation between a human and an AI.
+	The AI is talkative and provides lots of specific details from its context. 
+	If the AI does not know the answer to a question, it truthfully says it does not know. 
+	Any programming code should be output in a github flavored markdown code block mentioning the programming language.
+	
+	
+	Current conversation:
+	{history}
+	Human: {input}
+	AI:""",
 	template_format="f-string",
 	validate_template=True,
 )
