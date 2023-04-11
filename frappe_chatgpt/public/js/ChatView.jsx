@@ -89,7 +89,6 @@ const ChatView = ({ sessionID }) => {
         <VStack spacing={2} align="stretch" p={"2"}>
           {messages.map((message) => {
             return (
-              // TODO: Extract a separate component
               <Message message={message} />
             );
           })}
