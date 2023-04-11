@@ -118,6 +118,7 @@ const ChatView = ({ sessionID }) => {
             <IconButton
               aria-label="Send Prompt Message"
               icon={<SendIcon height={16} />}
+              onClick={handleSendMessage}
             />
           </Flex>
         </CardBody>
