@@ -29,6 +29,7 @@ const Message = ({ message }) => {
       backgroundColor={fromAI ? "blackAlpha.800" : "linkedin.500"}
       rounded={"xl"}
       width={"fit-content"}
+      maxW={"100%"}
       roundedTopLeft={fromAI ? "0" : "xl"}
       roundedTopRight={fromAI ? "xl" : "0"}
     >
@@ -67,7 +68,13 @@ const Message = ({ message }) => {
           remarkPlugins={[remarkGfm]}
         />
       ) : (
-        <SkeletonText width="20" noOfLines={1} spacing="4" skeletonHeight="2" />
+        <SkeletonText
+          maxWidth="100%"
+          width="20"
+          noOfLines={1}
+          spacing="4"
+          skeletonHeight="2"
+        />
       )}
     </Flex>
   );
