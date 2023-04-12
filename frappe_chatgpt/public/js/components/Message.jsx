@@ -12,10 +12,28 @@ import {
   Td,
   Th,
 } from "@chakra-ui/react";
+
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+import CopyToClipboardButton from "./CopyToClipboardButton";
+
+const Pre = (props) => {
+  const { codeString, ...otherProps } = props;
+
+  return (
+    <div
+      role="group"
+      {...otherProps}
+      style={{ ...otherProps.style, position: "relative" }}
+    >
+      {otherProps.children}
+      <CopyToClipboardButton contentToCopy={codeString} />
+    </div>
+  );
+};
 
 const Message = ({ message }) => {
   const fromAI = message.from === "ai";
@@ -50,13 +68,14 @@ const Message = ({ message }) => {
             th: ({ node, ...props }) => <Th {...props} />,
             code({ node, inline, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
+              const codeString = String(children).replace(/\n$/, "");
               return !inline && match ? (
                 <SyntaxHighlighter
                   {...props}
-                  children={String(children).replace(/\n$/, "")}
+                  children={codeString}
                   style={atomDark}
                   language={match[1]}
-                  PreTag="div"
+                  PreTag={(props) => <Pre codeString={codeString} {...props} />}
                 />
               ) : (
                 <code {...props} className={className}>
