@@ -21,7 +21,7 @@ const CopyToClipboardButton = ({ contentToCopy }) => {
       top={"1.5"}
       right={"1.5"}
       size={"xs"}
-      opacity={"0"}
+      opacity={{ base: "1", sm: "0" }}
       _groupHover={{ opacity: 1 }}
       variant="outline"
       colorScheme="whiteAlpha"

@@ -47,7 +47,7 @@ const Message = ({ message }) => {
       backgroundColor={fromAI ? "blackAlpha.800" : "linkedin.500"}
       rounded={"xl"}
       width={"fit-content"}
-      maxW={"100%"}
+      maxW={{ base: "100%", sm: "55%" }}
       roundedTopLeft={fromAI ? "0" : "xl"}
       roundedTopRight={fromAI ? "xl" : "0"}
     >
