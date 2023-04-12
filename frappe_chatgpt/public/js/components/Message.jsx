@@ -15,6 +15,7 @@ import {
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from 'rehype-raw'
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -85,6 +86,7 @@ const Message = ({ message }) => {
             },
           }}
           remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
         />
       ) : (
         <SkeletonText
