@@ -44,44 +44,7 @@ const Message = ({ message }) => {
       {!message.isLoading ? (
         <ReactMarkdown
           children={message.content}
-          components={{
-            p: ({ node, ...props }) => <Text color="white" mb="0" {...props} />,
-            table: ({ node, ...props }) => (
-              <TableContainer bg={"white"} mt="1.5" rounded="sm">
-                <Table p={"1"} size={"sm"} variant={"simple"} {...props} />
-              </TableContainer>
-            ),
-            img: ({ node, ...props }) => (
-              <Image
-                rounded={"sm"}
-                boxSize={"32"}
-                objectFit={"cover"}
-                {...props}
-              />
-            ),
-            thead: ({ node, ...props }) => <Thead {...props} />,
-            tbody: ({ node, ...props }) => <Tbody {...props} />,
-            tr: ({ node, ...props }) => <Tr {...props} />,
-            td: ({ node, ...props }) => <Td {...props} />,
-            th: ({ node, ...props }) => <Th {...props} />,
-            code({ node, inline, className, children, ...props }) {
-              const match = /language-(\w+)/.exec(className || "");
-              const codeString = String(children).replace(/\n$/, "");
-              return !inline && match ? (
-                <SyntaxHighlighter
-                  {...props}
-                  children={codeString}
-                  style={atomDark}
-                  language={match[1]}
-                  PreTag={(props) => <Pre codeString={codeString} {...props} />}
-                />
-              ) : (
-                <code {...props} className={className}>
-                  {children}
-                </code>
-              );
-            },
-          }}
+          components={markdownRenderComponentOverrides}
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
         />
@@ -96,6 +59,40 @@ const Message = ({ message }) => {
       )}
     </MessageBubble>
   );
+};
+
+const markdownRenderComponentOverrides = {
+  p: ({ node, ...props }) => <Text color="white" mb="0" {...props} />,
+  table: ({ node, ...props }) => (
+    <TableContainer bg={"white"} mt="1.5" rounded="sm">
+      <Table p={"1"} size={"sm"} variant={"simple"} {...props} />
+    </TableContainer>
+  ),
+  img: ({ node, ...props }) => (
+    <Image rounded={"sm"} boxSize={"32"} objectFit={"cover"} {...props} />
+  ),
+  thead: ({ node, ...props }) => <Thead {...props} />,
+  tbody: ({ node, ...props }) => <Tbody {...props} />,
+  tr: ({ node, ...props }) => <Tr {...props} />,
+  td: ({ node, ...props }) => <Td {...props} />,
+  th: ({ node, ...props }) => <Th {...props} />,
+  code({ node, inline, className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || "");
+    const codeString = String(children).replace(/\n$/, "");
+    return !inline && match ? (
+      <SyntaxHighlighter
+        {...props}
+        children={codeString}
+        style={atomDark}
+        language={match[1]}
+        PreTag={(props) => <Pre codeString={codeString} {...props} />}
+      />
+    ) : (
+      <code {...props} className={className}>
+        {children}
+      </code>
+    );
+  },
 };
 
 export default Message;
