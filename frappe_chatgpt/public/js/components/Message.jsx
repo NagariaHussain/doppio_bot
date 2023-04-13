@@ -22,21 +22,6 @@ import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import CopyToClipboardButton from "./CopyToClipboardButton";
 import MessageBubble from "./MessageBubble";
 
-const Pre = (props) => {
-  const { codeString, ...otherProps } = props;
-
-  return (
-    <div
-      role="group"
-      {...otherProps}
-      style={{ ...otherProps.style, position: "relative" }}
-    >
-      {otherProps.children}
-      <CopyToClipboardButton contentToCopy={codeString} />
-    </div>
-  );
-};
-
 const Message = ({ message }) => {
   const fromAI = message.from === "ai";
   return (
@@ -85,7 +70,9 @@ const markdownRenderComponentOverrides = {
         children={codeString}
         style={atomDark}
         language={match[1]}
-        PreTag={(props) => <Pre codeString={codeString} {...props} />}
+        PreTag={(props) => (
+          <PreWithClickToCopyButton codeString={codeString} {...props} />
+        )}
       />
     ) : (
       <code {...props} className={className}>
@@ -93,6 +80,21 @@ const markdownRenderComponentOverrides = {
       </code>
     );
   },
+};
+
+const PreWithClickToCopyButton = (props) => {
+  const { codeString, ...otherProps } = props;
+
+  return (
+    <div
+      role="group"
+      {...otherProps}
+      style={{ ...otherProps.style, position: "relative" }}
+    >
+      {otherProps.children}
+      <CopyToClipboardButton contentToCopy={codeString} />
+    </div>
+  );
 };
 
 export default Message;
