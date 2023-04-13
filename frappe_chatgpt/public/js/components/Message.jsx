@@ -1,7 +1,6 @@
 import * as React from "react";
 
 import {
-  Flex,
   Text,
   SkeletonText,
   Table,
@@ -16,11 +15,12 @@ import {
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import rehypeRaw from 'rehype-raw'
+import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import CopyToClipboardButton from "./CopyToClipboardButton";
+import MessageBubble from "./MessageBubble";
 
 const Pre = (props) => {
   const { codeString, ...otherProps } = props;
@@ -40,19 +40,7 @@ const Pre = (props) => {
 const Message = ({ message }) => {
   const fromAI = message.from === "ai";
   return (
-    <Flex
-      direction={"column"}
-      p={"4"}
-      key={message.content}
-      alignSelf={fromAI ? "start" : "end"}
-      justify={"center"}
-      backgroundColor={fromAI ? "blackAlpha.800" : "linkedin.500"}
-      rounded={"xl"}
-      width={"fit-content"}
-      maxW={{ base: "100%", sm: "55%" }}
-      roundedTopLeft={fromAI ? "0" : "xl"}
-      roundedTopRight={fromAI ? "xl" : "0"}
-    >
+    <MessageBubble key={message.content} fromAI={fromAI}>
       {!message.isLoading ? (
         <ReactMarkdown
           children={message.content}
@@ -106,7 +94,7 @@ const Message = ({ message }) => {
           skeletonHeight="2"
         />
       )}
-    </Flex>
+    </MessageBubble>
   );
 };
 
