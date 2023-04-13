@@ -11,6 +11,7 @@ import {
   Tr,
   Td,
   Th,
+  Image,
 } from "@chakra-ui/react";
 
 import ReactMarkdown from "react-markdown";
@@ -61,6 +62,14 @@ const Message = ({ message }) => {
               <TableContainer bg={"white"} mt="1.5" rounded="sm">
                 <Table p={"1"} size={"sm"} variant={"simple"} {...props} />
               </TableContainer>
+            ),
+            img: ({ node, ...props }) => (
+              <Image
+                rounded={"sm"}
+                boxSize={"32"}
+                objectFit={"cover"}
+                {...props}
+              />
             ),
             thead: ({ node, ...props }) => <Thead {...props} />,
             tbody: ({ node, ...props }) => <Tbody {...props} />,
