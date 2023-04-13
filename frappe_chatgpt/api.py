@@ -27,7 +27,7 @@ prompt_template = PromptTemplate(
 
 
 @frappe.whitelist()
-def get_chatbot_response(session_id, prompt_message):
+def get_chatbot_response(session_id: str, prompt_message: str) -> str:
 	# Throw if no key in site_config
 	# Maybe extract and cache this (site cache)
 	opeai_api_key = frappe.conf.get("openai_api_key")
