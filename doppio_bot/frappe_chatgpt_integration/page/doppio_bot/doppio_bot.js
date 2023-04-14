@@ -4,12 +4,6 @@ frappe.pages["doppio-bot"].on_page_load = function (wrapper) {
     title: "Ask DoppioBot",
     single_column: true,
   });
-
-  // hot reload in development
-  if (frappe.boot.developer_mode) {
-    frappe.hot_update = frappe.hot_update || [];
-    frappe.hot_update.push(() => load_chatgpt_ui(wrapper));
-  }
 };
 
 frappe.pages["doppio-bot"].on_page_show = function (wrapper) {
