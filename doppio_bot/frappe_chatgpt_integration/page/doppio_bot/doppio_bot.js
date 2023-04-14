@@ -11,7 +11,6 @@ frappe.pages["doppio-bot"].on_page_show = function (wrapper) {
 };
 
 function load_doppiobot_ui(wrapper) {
-  let route = frappe.get_route();
   let $parent = $(wrapper).find(".layout-main-section");
   $parent.empty();
 
