@@ -1,7 +1,7 @@
 from . import __version__ as app_version
 
 app_name = "doppio_bot"
-app_title = "Frappe ChatGPT Integration"
+app_title = "DoppioBot"
 app_publisher = "Hussain Nagaria"
 app_description = "ChatGPT in the Desk, powered by React & OpenAI API"
 app_email = "hussain@frappe.io"
