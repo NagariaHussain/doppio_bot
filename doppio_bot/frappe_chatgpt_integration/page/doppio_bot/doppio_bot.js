@@ -7,16 +7,16 @@ frappe.pages["doppio-bot"].on_page_load = function (wrapper) {
 };
 
 frappe.pages["doppio-bot"].on_page_show = function (wrapper) {
-  load_chatgpt_ui(wrapper);
+  load_doppiobot_ui(wrapper);
 };
 
-function load_chatgpt_ui(wrapper) {
+function load_doppiobot_ui(wrapper) {
   let route = frappe.get_route();
   let $parent = $(wrapper).find(".layout-main-section");
   $parent.empty();
 
-  frappe.require("chatgpt_ui.bundle.jsx").then(() => {
-    frappe.chatgpt_ui = new chatgpt.ui.ChatGptUI({
+  frappe.require("doppiobot_ui.bundle.jsx").then(() => {
+    new doppiobot.ui.DoppioBotUI({
       wrapper: $parent,
       page: wrapper.page,
     });
