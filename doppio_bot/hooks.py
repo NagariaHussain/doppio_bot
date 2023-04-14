@@ -1,6 +1,6 @@
 from . import __version__ as app_version
 
-app_name = "frappe_chatgpt"
+app_name = "doppio_bot"
 app_title = "Frappe ChatGPT Integration"
 app_publisher = "Hussain Nagaria"
 app_description = "ChatGPT in the Desk, powered by React & OpenAI API"
@@ -11,15 +11,15 @@ app_license = "AGPL-3.0"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/frappe_chatgpt/css/frappe_chatgpt.css"
-# app_include_js = "/assets/frappe_chatgpt/js/frappe_chatgpt.js"
+# app_include_css = "/assets/doppio_bot/css/doppio_bot.css"
+# app_include_js = "/assets/doppio_bot/js/doppio_bot.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/frappe_chatgpt/css/frappe_chatgpt.css"
-# web_include_js = "/assets/frappe_chatgpt/js/frappe_chatgpt.js"
+# web_include_css = "/assets/doppio_bot/css/doppio_bot.css"
+# web_include_js = "/assets/doppio_bot/js/doppio_bot.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "frappe_chatgpt/public/scss/website"
+# website_theme_scss = "doppio_bot/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -56,27 +56,27 @@ app_license = "AGPL-3.0"
 
 # add methods and filters to jinja environment
 # jinja = {
-#	"methods": "frappe_chatgpt.utils.jinja_methods",
-#	"filters": "frappe_chatgpt.utils.jinja_filters"
+#	"methods": "doppio_bot.utils.jinja_methods",
+#	"filters": "doppio_bot.utils.jinja_filters"
 # }
 
 # Installation
 # ------------
 
-# before_install = "frappe_chatgpt.install.before_install"
-# after_install = "frappe_chatgpt.install.after_install"
+# before_install = "doppio_bot.install.before_install"
+# after_install = "doppio_bot.install.after_install"
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "frappe_chatgpt.uninstall.before_uninstall"
-# after_uninstall = "frappe_chatgpt.uninstall.after_uninstall"
+# before_uninstall = "doppio_bot.uninstall.before_uninstall"
+# after_uninstall = "doppio_bot.uninstall.after_uninstall"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "frappe_chatgpt.notifications.get_notification_config"
+# notification_config = "doppio_bot.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -115,39 +115,39 @@ app_license = "AGPL-3.0"
 
 # scheduler_events = {
 #	"all": [
-#		"frappe_chatgpt.tasks.all"
+#		"doppio_bot.tasks.all"
 #	],
 #	"daily": [
-#		"frappe_chatgpt.tasks.daily"
+#		"doppio_bot.tasks.daily"
 #	],
 #	"hourly": [
-#		"frappe_chatgpt.tasks.hourly"
+#		"doppio_bot.tasks.hourly"
 #	],
 #	"weekly": [
-#		"frappe_chatgpt.tasks.weekly"
+#		"doppio_bot.tasks.weekly"
 #	],
 #	"monthly": [
-#		"frappe_chatgpt.tasks.monthly"
+#		"doppio_bot.tasks.monthly"
 #	],
 # }
 
 # Testing
 # -------
 
-# before_tests = "frappe_chatgpt.install.before_tests"
+# before_tests = "doppio_bot.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-#	"frappe.desk.doctype.event.event.get_events": "frappe_chatgpt.event.get_events"
+#	"frappe.desk.doctype.event.event.get_events": "doppio_bot.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-#	"Task": "frappe_chatgpt.task.get_dashboard_data"
+#	"Task": "doppio_bot.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -161,13 +161,13 @@ app_license = "AGPL-3.0"
 
 # Request Events
 # ----------------
-# before_request = ["frappe_chatgpt.utils.before_request"]
-# after_request = ["frappe_chatgpt.utils.after_request"]
+# before_request = ["doppio_bot.utils.before_request"]
+# after_request = ["doppio_bot.utils.after_request"]
 
 # Job Events
 # ----------
-# before_job = ["frappe_chatgpt.utils.before_job"]
-# after_job = ["frappe_chatgpt.utils.after_job"]
+# before_job = ["doppio_bot.utils.before_job"]
+# after_job = ["doppio_bot.utils.after_job"]
 
 # User Data Protection
 # --------------------
@@ -197,5 +197,5 @@ app_license = "AGPL-3.0"
 # --------------------------------
 
 # auth_hooks = [
-#	"frappe_chatgpt.auth.validate"
+#	"doppio_bot.auth.validate"
 # ]

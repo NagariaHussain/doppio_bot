@@ -2,6 +2,13 @@
 
 ChatGPT in the Desk, powered by React & LangChain (with OpenAI LLM)
 
+## Features
+
+### ChatUI
+
+
+### API
+
 ## Advanced Example: Agent with Custom Tool
 
 Here is an example of an conversational agent that uses a custom tool that creates a ToDo document in the Frappe backend:

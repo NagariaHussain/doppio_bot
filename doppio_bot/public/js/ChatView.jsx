@@ -42,7 +42,7 @@ const ChatView = ({ sessionID }) => {
     setPromptMessage("");
 
     frappe
-      .call("frappe_chatgpt.api.get_chatbot_response", {
+      .call("doppio_bot.api.get_chatbot_response", {
         prompt_message: promptMessage,
         session_id: sessionID,
       })

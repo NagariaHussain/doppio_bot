@@ -3,11 +3,11 @@ from setuptools import setup, find_packages
 with open("requirements.txt") as f:
 	install_requires = f.read().strip().split("\n")
 
-# get version from __version__ variable in frappe_chatgpt/__init__.py
-from frappe_chatgpt import __version__ as version
+# get version from __version__ variable in doppio_bot/__init__.py
+from doppio_bot import __version__ as version
 
 setup(
-	name="frappe_chatgpt",
+	name="doppio_bot",
 	version=version,
 	description="ChatGPT in the Desk, powered by React & OpenAI API",
 	author="Hussain Nagaria",

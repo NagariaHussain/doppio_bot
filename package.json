@@ -1,5 +1,5 @@
 {
-  "name": "frappe_chatgpt",
+  "name": "doppio_bot",
   "version": "1.0.0",
   "description": "ChatGPT in the Desk, powered by React & OpenAI API",
   "main": "index.js",

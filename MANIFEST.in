@@ -4,15 +4,15 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include frappe_chatgpt *.css
-recursive-include frappe_chatgpt *.csv
-recursive-include frappe_chatgpt *.html
-recursive-include frappe_chatgpt *.ico
-recursive-include frappe_chatgpt *.js
-recursive-include frappe_chatgpt *.json
-recursive-include frappe_chatgpt *.md
-recursive-include frappe_chatgpt *.png
-recursive-include frappe_chatgpt *.py
-recursive-include frappe_chatgpt *.svg
-recursive-include frappe_chatgpt *.txt
-recursive-exclude frappe_chatgpt *.pyc
+recursive-include doppio_bot *.css
+recursive-include doppio_bot *.csv
+recursive-include doppio_bot *.html
+recursive-include doppio_bot *.ico
+recursive-include doppio_bot *.js
+recursive-include doppio_bot *.json
+recursive-include doppio_bot *.md
+recursive-include doppio_bot *.png
+recursive-include doppio_bot *.py
+recursive-include doppio_bot *.svg
+recursive-include doppio_bot *.txt
+recursive-exclude doppio_bot *.pyc
