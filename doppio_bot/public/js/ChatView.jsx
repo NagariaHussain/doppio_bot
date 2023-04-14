@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import Message from "./components/Message";
+import Message from "./components/message/Message";
 
 const ChatView = ({ sessionID }) => {
   // from Frappe!

@@ -1,0 +1,23 @@
+{
+    "content": null,
+    "creation": "2023-03-19 12:19:57.679706",
+    "docstatus": 0,
+    "doctype": "Page",
+    "idx": 0,
+    "modified": "2023-04-10 12:23:49.022908",
+    "modified_by": "Administrator",
+    "module": "Frappe ChatGPT Integration",
+    "name": "doppio-bot",
+    "owner": "Administrator",
+    "page_name": "doppio-bot",
+    "roles": [
+        {
+            "role": "System Manager"
+        }
+    ],
+    "script": null,
+    "standard": "Yes",
+    "style": null,
+    "system_page": 0,
+    "title": "Ask DoppioBot"
+}
