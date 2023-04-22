@@ -62,4 +62,4 @@ Learn more about creating custom tools [here](https://python.langchain.com/en/la
 
 #### License
 
-AGPL-3.0
+MIT
