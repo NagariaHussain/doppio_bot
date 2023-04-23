@@ -11,6 +11,9 @@ import {
   Th,
   Image,
   Heading,
+  ListItem,
+  UnorderedList,
+  OrderedList,
 } from "@chakra-ui/react";
 
 import rehypeRaw from "rehype-raw";
@@ -34,10 +37,13 @@ const MessageRenderer = ({ content }) => {
 
 const markdownRenderComponentOverrides = {
   p: ({ node, ...props }) => <Text color="white" mb="0" {...props} />,
-  h1: ({ node, ...props }) => <Heading as="h1" {...props} />,
-  h2: ({ node, ...props }) => <Heading as="h2" {...props} />,
-  h3: ({ node, ...props }) => <Heading as="h3" {...props} />,
-  h4: ({ node, ...props }) => <Heading as="h4" {...props} />,
+  h1: ({ node, ...props }) => <Heading color="white" as="h1" {...props} />,
+  h2: ({ node, ...props }) => <Heading color="white" as="h2" {...props} />,
+  h3: ({ node, ...props }) => <Heading color="white" as="h3" {...props} />,
+  h4: ({ node, ...props }) => <Heading color="white" as="h4" {...props} />,
+  li: ({ node, ...props }) => <ListItem color="white" {...props} />,
+  ul: ({ node, ...props }) => <UnorderedList {...props} />,
+  ol: ({ node, ...props }) => <OrderedList {...props} />,
   table: ({ node, ...props }) => (
     <TableContainer bg={"white"} mt="1.5" rounded="sm">
       <Table p={"1"} size={"sm"} variant={"simple"} {...props} />
