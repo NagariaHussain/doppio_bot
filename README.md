@@ -1,27 +1,63 @@
-## DoppioBot
+# DoppioBot
 
-https://user-images.githubusercontent.com/34810212/233836702-c626bd91-4016-4731-89b0-a09c21e433c4.mp4
+<https://user-images.githubusercontent.com/34810212/233836702-c626bd91-4016-4731-89b0-a09c21e433c4.mp4>
 
-ChatGPT experience, built right into Frappe's desk interface.
+Use. Play. Extend. ChatGPT experience, built right into Frappe's desk interface.
 
-## BTS
+## Announcement Blog Post
 
-You can read more on how DoppioBot is built and how to use it in [this](https://frappe.io/blog/engineering/introducing-doppiobot-template) blog post.
+You can read more on how DoppioBot is built, how to use it and how to extend it for your own applications in [this](https://frappe.io/blog/engineering/introducing-doppiobot-template) blog post.
+
+## Tech Stack
+
+- [Frappe Framework](https://frappeframework.com)
+  - Python & JavaScript
+  - MariaDB
+  - Redis
+- [LangChain](https://python.langchain.com/en/latest/)
+- [OpenAI API](https://openai.com/blog/openai-api)
+- [ReactJS](https://reactjs.org)
+- [ChakraUI](https://chakra-ui.com)
+
+## Installation & Usage
+
+Just like any other Frappe app, if you have bench installed, you can execute the following commands to install the **DoppioBot** app on your Frappe site:
+
+```bash
+bench get-app NagariaHussain/doppio_bot
+bench --site <your-site> install-app doppio_bot
+```
+
+Then add your OpenAI API key to the `site_config.json` (of the site you have installed the app on):
+
+```json
+"openai_api_key": "sk-your-secret-api-key"
+```
+
+Then navigate to your site, use the awesome bar for **Ask DoppioBot**, and enjoy!
+
+### Chat Interface
+
+![doppio_bot_cover_image](https://user-images.githubusercontent.com/34810212/233837411-68359b1d-8a5a-4f7e-bf13-45f534cb6d64.png)
+
+The Chat page is built using Frappe's Custom Pages feature, React, and ChakraUI.
 
 ## Features
 
 ![DoppioBot Feature Sneak](https://user-images.githubusercontent.com/34810212/233836622-eac2011c-f84d-476d-926f-2e08da2b396d.png)
 
-### ChatUI
-
-
-![doppio_bot_cover_image](https://user-images.githubusercontent.com/34810212/233837411-68359b1d-8a5a-4f7e-bf13-45f534cb6d64.png)
-
+- Session Chat history management with Redis
+- Formatting of markdown responses including tables and lists
+- Code block responses are syntax-highlighted and have a click to copy button!
+- A sleek loading skeleton is shown while the message is being fetched
+- The prompt can be submitted through mouse as well as keyboard (`Cmd + Enter`)
 
 
 ### API
 
 ![bot_fun_chat](https://user-images.githubusercontent.com/34810212/233836619-7d8eca87-a177-4659-bef1-7dbbf699cca7.png)
+
+The API that powers the chat page is built using the LangChain Python package.
 
 ## Advanced Example: Agent with Custom Tool
 
