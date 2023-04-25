@@ -36,7 +36,10 @@ def get_chatbot_response(session_id: str, prompt_message: str) -> str:
 		frappe.throw("Please set `openai_api_key` in site config")
 
 	llm = OpenAI(temperature=0, openai_api_key=opeai_api_key)
-	message_history = RedisChatMessageHistory(session_id=session_id)
+	message_history = RedisChatMessageHistory(
+		session_id=session_id,
+		url=frappe.conf.get("redis_cache") or "redis://localhost:6379/0",
+	)
 	memory = ConversationBufferMemory(memory_key="history", chat_memory=message_history)
 	conversation_chain = ConversationChain(llm=llm, memory=memory, prompt=prompt_template)
 
