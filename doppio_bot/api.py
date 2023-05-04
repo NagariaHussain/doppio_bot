@@ -5,6 +5,8 @@ from langchain.memory import RedisChatMessageHistory, ConversationBufferMemory
 from langchain.chains import ConversationChain
 from langchain.prompts import PromptTemplate
 
+OPENAI_MODEL_NAME = "gpt-3.5-turbo"
+
 # Note: Copied the default template and added extra instructions for code output
 prompt_template = PromptTemplate(
 	input_variables=["history", "input"],
@@ -35,7 +37,7 @@ def get_chatbot_response(session_id: str, prompt_message: str) -> str:
 	if not opeai_api_key:
 		frappe.throw("Please set `openai_api_key` in site config")
 
-	llm = OpenAI(temperature=0, openai_api_key=opeai_api_key)
+	llm = OpenAI(model_name=OPENAI_MODEL_NAME, temperature=0, openai_api_key=opeai_api_key)
 	message_history = RedisChatMessageHistory(
 		session_id=session_id,
 		url=frappe.conf.get("redis_cache") or "redis://localhost:6379/0",
@@ -43,4 +45,5 @@ def get_chatbot_response(session_id: str, prompt_message: str) -> str:
 	memory = ConversationBufferMemory(memory_key="history", chat_memory=message_history)
 	conversation_chain = ConversationChain(llm=llm, memory=memory, prompt=prompt_template)
 
-	return conversation_chain.run(prompt_message)
+	response = conversation_chain.run(prompt_message)
+	return response
