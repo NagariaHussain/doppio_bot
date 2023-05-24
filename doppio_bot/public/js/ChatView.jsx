@@ -8,6 +8,7 @@ import {
   Avatar,
   useToast,
   Textarea,
+  Text,
 } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
 import React, { useState } from "react";
@@ -74,6 +75,7 @@ const ChatView = ({ sessionID }) => {
       maxWidth={"4xl"}
       mx={"auto"}
     >
+      <Text fontSize="xl" fontWeight={"bold"} textColor={"gray.700"}>Ask DoppioBot</Text>
       {/* Chat Area */}
       <Box
         width={"100%"}
