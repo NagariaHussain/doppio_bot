@@ -10,7 +10,7 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 import { SendIcon } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Message from "./components/message/Message";
 
 const ChatView = ({ sessionID }) => {
@@ -65,15 +65,6 @@ const ChatView = ({ sessionID }) => {
         });
       });
   };
-
-  useEffect(() => {
-    toast({
-      title: "This is an experimental app",
-      status: "warning",
-      position: "bottom-right",
-      isClosable: true,
-    });
-  }, []);
 
   return (
     <Flex
