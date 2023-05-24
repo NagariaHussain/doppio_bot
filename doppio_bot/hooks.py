@@ -3,7 +3,7 @@ from . import __version__ as app_version
 app_name = "doppio_bot"
 app_title = "DoppioBot"
 app_publisher = "Hussain Nagaria"
-app_description = "ChatGPT in the Desk, powered by React & OpenAI API"
+app_description = "ChatGPT in the Desk, powered by React, LangChain & OpenAI API"
 app_email = "hussain@frappe.io"
 app_license = "AGPL-3.0"
 
