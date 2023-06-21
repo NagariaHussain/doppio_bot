@@ -1,0 +1,42 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-06-21 13:00:34.366049",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "openai_model"
+ ],
+ "fields": [
+  {
+   "default": "gpt-3.5-turbo",
+   "fieldname": "openai_model",
+   "fieldtype": "Select",
+   "label": "OpenAI Model",
+   "options": "gpt-3.5-turbo\ngpt-3.5-turbo-16k\ntext-davinci-003\ngpt-4\ngpt-4-32k"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-06-21 13:06:09.895694",
+ "modified_by": "Administrator",
+ "module": "Frappe ChatGPT Integration",
+ "name": "DoppioBot Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
